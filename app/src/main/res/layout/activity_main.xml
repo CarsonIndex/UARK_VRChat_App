@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background = "@color/background"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/RowA"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/LeftSpin"
+            android:layout_width="35dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/square"
+            android:text="L_Spin"
+            android:textColor="@color/icon"
+            android:textSize="12sp"
+            app:rippleColor="@color/icon" />
+
+
+        <Button
+            android:id="@+id/Up"
+            android:layout_width="35dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/square"
+            android:text="Up"
+            android:textColor="@color/icon"
+            android:textSize="12sp"
+            app:rippleColor="@color/icon" />
+
+        <Button
+            android:id="@+id/RightSpin"
+            android:layout_width="35dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/square"
+            android:text="R_Spin"
+            android:textColor="@color/icon"
+            android:textSize="12sp"
+            app:rippleColor="@color/icon" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/RowB"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/RowC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/RowA">
+
+        <Button
+            android:id="@+id/LeftArrow"
+            android:layout_width="35dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/square"
+            android:text="Left"
+            android:textColor="@color/icon"
+            android:textSize="12sp"
+            app:rippleColor="@color/icon" />
+
+        <Button
+            android:id="@+id/Mute"
+            android:layout_width="35dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/square"
+            android:text="Mute"
+            android:textColor="@color/icon"
+            android:textSize="12sp"
+            app:rippleColor="@color/icon" />
+
+        <Button
+            android:id="@+id/RightArrow"
+            android:layout_width="35dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/square"
+            android:text="Right"
+            android:textColor="@color/icon"
+            android:textSize="12sp"
+            app:rippleColor="@color/icon" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/RowC"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/BottomRow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_constraintBottom_toTopOf="@id/BottomRow"
+        tools:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/Jump"
+            android:layout_width="35dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/square"
+            android:text="Jump"
+            android:textColor="@color/icon"
+            android:textSize="12sp"
+            app:rippleColor="@color/icon" />
+
+        <Button
+            android:id="@+id/DownArrow"
+            android:layout_width="35dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/square"
+            android:text="Down"
+            android:textColor="@color/icon"
+            android:textSize="12sp"
+            app:rippleColor="@color/icon" />
+
+        <Button
+            android:id="@+id/AFK"
+            android:layout_width="35dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/square"
+            android:text="AFK"
+            android:textColor="@color/icon"
+            android:textSize="12sp"
+            app:rippleColor="@color/icon" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/BottomRow"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/Chat"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/square"
+            android:text="Chat"
+            android:textColor="@color/icon"
+            app:rippleColor="@color/icon" />
+
+        <Button
+            android:id="@+id/Control"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/square"
+            android:text="Control"
+            android:textColor="@color/icon"
+            app:rippleColor="@color/icon" />
+
+        <Button
+            android:id="@+id/Settings"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/square"
+            android:text="Settings"
+            android:textColor="@color/icon"
+            app:rippleColor="@color/icon" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
