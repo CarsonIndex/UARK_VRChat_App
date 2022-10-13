@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".AdvancedActivity">
+
+    <TextView
+        android:id="@+id/statusView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/icon"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@id/IPLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/IPLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25">
+
+        <TextView
+            android:id="@+id/targetText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Target IP and Port:"
+            android:textAlignment="center"
+            android:textColor="#00FFFF" />
+
+        <EditText
+            android:id="@+id/ipEditAdvanced"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/border"
+            android:backgroundTint="@color/square"
+            android:ems="10"
+            android:hint="127.0.0.1"
+            android:inputType="text"
+            android:textColor="@color/icon" />
+
+        <TextView
+            android:id="@+id/colonText"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text=":"
+            android:textAlignment="center"
+            android:textColor="#00FFFF" />
+
+        <EditText
+            android:id="@+id/portEdit"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/border"
+            android:backgroundTint="@color/square"
+            android:ems="10"
+            android:hint="0000"
+            android:inputType="number"
+            android:textColor="@color/icon" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/MessageLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/IPLayout">
+
+        <TextView
+            android:id="@+id/messageText"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Message:"
+            android:textAlignment="center"
+            android:textColor="#00FFFF" />
+
+        <EditText
+            android:id="@+id/messageEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/border"
+            android:backgroundTint="@color/square"
+            android:ems="10"
+            android:hint="/message/address/here"
+            android:inputType="text"
+            android:textColor="@color/icon" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ParameterLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/MessageLayout">
+
+        <TextView
+            android:id="@+id/parameterText"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Parameter:"
+            android:textAlignment="center"
+            android:textColor="#00FFFF" />
+
+        <EditText
+            android:id="@+id/parameterEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/border"
+            android:backgroundTint="@color/square"
+            android:ems="10"
+            android:hint="parameter sent to message"
+            android:inputType="text"
+            android:textColor="@color/icon" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonSendString"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/square"
+        android:onClick="attemptSend"
+        android:tag="String"
+        android:text="Send String"
+        android:textColor="@color/icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ParameterLayout"
+        app:rippleColor="@color/icon" />
+
+    <Button
+        android:id="@+id/buttonSendFloat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/square"
+        android:onClick="attemptSend"
+        android:tag="Float"
+        android:text="Send Float"
+        android:textColor="@color/icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonSendString"
+        app:rippleColor="@color/icon" />
+
+    <Button
+        android:id="@+id/buttonSendInt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/square"
+        android:onClick="attemptSend"
+        android:tag="Integer"
+        android:text="Send Integer"
+        android:textColor="@color/icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonSendFloat"
+        app:rippleColor="@color/icon" />
+
+    <Button
+        android:id="@+id/buttonSendBool"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/square"
+        android:onClick="attemptSend"
+        android:tag="Boolean"
+        android:text="Send Boolean"
+        android:textColor="@color/icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonSendInt"
+        app:rippleColor="@color/icon" />
+
+    <Button
+        android:id="@+id/buttonSaveAdvanced"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/square"
+        android:onClick="returnAdvanced"
+        android:text="Save"
+        android:textColor="@color/icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="@color/icon"
+        tools:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

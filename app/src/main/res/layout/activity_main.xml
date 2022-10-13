@@ -10,48 +10,58 @@
     <LinearLayout
         android:id="@+id/RowA"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_marginTop="100dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
+        <ToggleButton
             android:id="@+id/LeftSpin"
             android:layout_width="35dp"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_weight="1"
             android:backgroundTint="@color/square"
+            android:disabledAlpha="0.5"
+            android:tag="lookLeft"
             android:text="L_Spin"
             android:textColor="@color/icon"
+            android:textOff="L_Spin"
+            android:textOn="L_Spin"
             android:textSize="12sp"
             app:rippleColor="@color/icon" />
 
 
-        <Button
+        <ToggleButton
             android:id="@+id/Up"
             android:layout_width="35dp"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:backgroundTint="@color/square"
+            android:tag="moveForward"
             android:text="Up"
             android:textColor="@color/icon"
+            android:textOff="Up"
+            android:textOn="Up"
             android:textSize="12sp"
             app:rippleColor="@color/icon" />
 
-        <Button
+        <ToggleButton
             android:id="@+id/RightSpin"
             android:layout_width="35dp"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_weight="1"
             android:backgroundTint="@color/square"
+            android:tag="lookRight"
             android:text="R_Spin"
             android:textColor="@color/icon"
+            android:textOff="R_Spin"
+            android:textOn="R_Spin"
             android:textSize="12sp"
             app:rippleColor="@color/icon" />
 
@@ -60,47 +70,56 @@
     <LinearLayout
         android:id="@+id/RowB"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@id/RowC"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/RowA">
 
-        <Button
+        <ToggleButton
             android:id="@+id/LeftArrow"
             android:layout_width="35dp"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_weight="1"
             android:backgroundTint="@color/square"
+            android:tag="moveLeft"
             android:text="Left"
             android:textColor="@color/icon"
+            android:textOff="Left"
+            android:textOn="Left"
             android:textSize="12sp"
             app:rippleColor="@color/icon" />
 
-        <Button
-            android:id="@+id/Mute"
+        <ToggleButton
+            android:id="@+id/Sprint"
             android:layout_width="35dp"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:backgroundTint="@color/square"
-            android:text="Mute"
+            android:tag="sprint"
+            android:text="Sprint"
             android:textColor="@color/icon"
+            android:textOff="Sprint"
+            android:textOn="Sprint"
             android:textSize="12sp"
             app:rippleColor="@color/icon" />
 
-        <Button
+        <ToggleButton
             android:id="@+id/RightArrow"
             android:layout_width="35dp"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_weight="1"
             android:backgroundTint="@color/square"
+            android:tag="moveRight"
             android:text="Right"
             android:textColor="@color/icon"
+            android:textOff="Right"
+            android:textOn="Right"
             android:textSize="12sp"
             app:rippleColor="@color/icon" />
 
@@ -109,7 +128,7 @@
     <LinearLayout
         android:id="@+id/RowC"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_marginBottom="100dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/BottomRow"
@@ -121,39 +140,45 @@
         <Button
             android:id="@+id/Jump"
             android:layout_width="35dp"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_weight="1"
             android:backgroundTint="@color/square"
+            android:onClick="buttonOnPress"
+            android:tag="singleJump"
             android:text="Jump"
             android:textColor="@color/icon"
-            android:textSize="12sp"
-            app:rippleColor="@color/icon" />
+            android:textSize="12sp" />
 
-        <Button
+        <ToggleButton
             android:id="@+id/DownArrow"
             android:layout_width="35dp"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:backgroundTint="@color/square"
+            android:tag="moveBackward"
             android:text="Down"
             android:textColor="@color/icon"
+            android:textOff="Down"
+            android:textOn="Down"
             android:textSize="12sp"
             app:rippleColor="@color/icon" />
 
         <Button
-            android:id="@+id/AFK"
+            android:id="@+id/Mute"
             android:layout_width="35dp"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_weight="1"
             android:backgroundTint="@color/square"
-            android:text="AFK"
+            android:onClick="buttonOnPress"
+            android:tag="voice"
+            android:text="Toggle Mute"
             android:textColor="@color/icon"
-            android:textSize="12sp"
-            app:rippleColor="@color/icon" />
+            android:textSize="12sp" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -176,12 +201,15 @@
             app:rippleColor="@color/icon" />
 
         <Button
-            android:id="@+id/Control"
+            android:id="@+id/Advanced"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:backgroundTint="@color/square"
-            android:text="Control"
+            android:onClick="launchAdvanced"
+            android:text="Advanced"
             android:textColor="@color/icon"
             app:rippleColor="@color/icon" />
 
@@ -193,6 +221,7 @@
             android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:backgroundTint="@color/square"
+            android:onClick="launchSetting"
             android:text="Settings"
             android:textColor="@color/icon"
             app:rippleColor="@color/icon" />
