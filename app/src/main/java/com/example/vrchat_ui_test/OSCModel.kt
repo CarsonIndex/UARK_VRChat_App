@@ -2,6 +2,7 @@ package com.example.vrchat_ui_test
 
 import android.util.Log
 
+//TROY: This is the OSC class to be used with only MainActivity. Use OSCAdvanced for other Activities.
 class OSCModel(ipAddress:String, tag:String, pressed:Boolean) : Thread(){
     private val address:String
     private val message:String
@@ -25,7 +26,7 @@ class OSCModel(ipAddress:String, tag:String, pressed:Boolean) : Thread(){
             "singleJump"->sendJumpSingle(sender)
             "lookLeft"->sendLookLeft(sender,state)
             "lookRight"->sendLookRight(sender,state)
-            "voice"->sendVoice(sender, state)
+            "voice"->sendVoiceToggle(sender)
             "safe"->sendSafe(sender, state)
             "sprint"->sendSprint(sender, state)
             "voiceOn"->sendVoice(sender,true)
@@ -70,9 +71,11 @@ class OSCModel(ipAddress:String, tag:String, pressed:Boolean) : Thread(){
         else sender.send("/input/Jump", 0)
     }
 
+    //TROY: Sleep is needed to have delay between 1 and 0.
     private fun sendJumpSingle(sender: OSCSender){
-        sender.send("/input/Jump", 0)
         sender.send("/input/Jump", 1)
+        sleep(100)
+        sender.send("/input/Jump", 0)
     }
 
     private fun sendVoice(sender:OSCSender, value:Boolean){ //TROY: When in push-to-talk mode, the Mic is on when 1 and off when 0.
@@ -80,9 +83,11 @@ class OSCModel(ipAddress:String, tag:String, pressed:Boolean) : Thread(){
         else sender.send("/input/Voice", 0)
     }
 
+    //TROY: Sleep is needed to have delay between 1 and 0.
     private fun sendVoiceToggle(sender: OSCSender){ //TROY: When in normal mode, the Mic toggles when going from 0 to 1.
-        sender.send("/input/Voice", 0)
         sender.send("/input/Voice", 1)
+        sleep(100)
+        sender.send("/input/Voice", 0)
     }
 
     private fun sendSafe(sender:OSCSender, value:Boolean){  //TROY: This will be removed at some point. Sprint will be used much more than this.

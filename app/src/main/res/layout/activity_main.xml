@@ -196,6 +196,7 @@
             android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:backgroundTint="@color/square"
+            android:onClick="launchChat"
             android:text="Chat"
             android:textColor="@color/icon"
             app:rippleColor="@color/icon" />

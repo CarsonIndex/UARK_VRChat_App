@@ -31,7 +31,7 @@
         app:layout_constraintVertical_bias="0.25">
 
         <TextView
-            android:id="@+id/targetText"
+            android:id="@+id/targetChatText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -49,12 +49,13 @@
             android:ems="10"
             android:hint="127.0.0.1"
             android:inputType="text"
+            android:minHeight="48dp"
             android:textColor="@color/icon" />
 
         <TextView
             android:id="@+id/colonText"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text=":"
             android:textAlignment="center"
@@ -70,6 +71,7 @@
             android:ems="10"
             android:hint="0000"
             android:inputType="number"
+            android:minHeight="48dp"
             android:textColor="@color/icon" />
 
     </LinearLayout>
@@ -101,6 +103,7 @@
             android:ems="10"
             android:hint="/message/address/here"
             android:inputType="text"
+            android:minHeight="48dp"
             android:textColor="@color/icon" />
     </LinearLayout>
 
@@ -131,6 +134,7 @@
             android:ems="10"
             android:hint="parameter sent to message"
             android:inputType="text"
+            android:minHeight="48dp"
             android:textColor="@color/icon" />
     </LinearLayout>
 

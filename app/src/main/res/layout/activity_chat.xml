@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    tools:context=".SettingActivity">
+    android:background = "@color/background"
+    tools:context=".ChatActivity">
 
     <Button
-        android:id="@+id/buttonApply"
+        android:id="@+id/buttonSend"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:backgroundTint="@color/square"
-        android:onClick="applyIP"
-        android:text="Apply"
+        android:onClick="attemptChat"
+        android:text="Send"
         android:textColor="@color/icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,11 +22,11 @@
         app:rippleColor="@color/icon" />
 
     <Button
-        android:id="@+id/buttonSave"
+        android:id="@+id/buttonChatSave"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/square"
-        android:onClick="returnIP"
+        android:onClick="returnChat"
         android:text="Save"
         android:textColor="@color/icon"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -50,35 +50,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="New Target IP:"
+            android:text="Chat Message:"
             android:textAlignment="center"
             android:textColor="#00FFFF" />
 
         <EditText
-            android:id="@+id/ipEditAdvanced"
+            android:id="@+id/chatText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/border"
             android:backgroundTint="@color/square"
             android:ems="10"
-            android:hint="127.0.0.1"
-            android:inputType="text"
+            android:gravity="start|top"
+            android:hint="Your message"
+            android:inputType="textMultiLine"
             android:minHeight="48dp"
             android:textColor="@color/icon" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/ipView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="127.0.0.1"
-        android:textAlignment="center"
-        android:textColor="@color/icon"
-        android:textSize="48sp"
-        app:layout_constraintBottom_toTopOf="@id/IPLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

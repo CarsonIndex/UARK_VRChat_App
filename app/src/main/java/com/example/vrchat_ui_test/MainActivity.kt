@@ -47,6 +47,14 @@ class MainActivity : AppCompatActivity() {
         startActivity(advancedIntent)
     }
 
+    fun launchChat(view: View){
+        val chatIntent = Intent(this, ChatActivity::class.java)
+
+        chatIntent.putExtra("ipAddress", ip)
+
+        startActivity(chatIntent)
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 

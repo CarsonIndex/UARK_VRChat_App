@@ -1,5 +1,6 @@
 package com.example.vrchat_ui_test
 
+import android.util.Log
 import com.illposed.osc.OSCMessage
 import com.illposed.osc.OSCPortOut
 import java.net.InetAddress
@@ -14,6 +15,10 @@ class OSCSender(ipAddress:String, portAddress:Int = 9000) {
 
     fun send(address:String, argument:Any){  //TROY: This method is to be used to send a message to the VRChat program.
         port.send(OSCMessage(address, listOf(argument)))
+    }
+
+    fun send(address:String, argument: List<Any>){  //TROY: This method is to be used to send to ChatBox.
+        port.send(OSCMessage(address, argument))
     }
 
     fun send(address:String, argument:Int){  //TROY: A variation of send that accepts integers.
