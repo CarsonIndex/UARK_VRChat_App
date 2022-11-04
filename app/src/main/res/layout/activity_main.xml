@@ -27,25 +27,25 @@
             android:backgroundTint="@color/square"
             android:disabledAlpha="0.5"
             android:tag="lookLeft"
-            android:text="L_Spin"
+            android:foreground="@drawable/rot_l_toggle_selector"
             android:textColor="@color/icon"
-            android:textOff="L_Spin"
-            android:textOn="L_Spin"
+            android:textOff=""
+            android:textOn=""
             android:textSize="12sp"
             app:rippleColor="@color/icon" />
 
 
         <ToggleButton
-            android:id="@+id/Up"
+            android:id="@+id/UpArrow"
             android:layout_width="35dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:backgroundTint="@color/square"
+            android:foreground="@drawable/up_toggle_selector"
             android:tag="moveForward"
-            android:text="Up"
             android:textColor="@color/icon"
-            android:textOff="Up"
-            android:textOn="Up"
+            android:textOff=""
+            android:textOn=""
             android:textSize="12sp"
             app:rippleColor="@color/icon" />
 
@@ -58,10 +58,10 @@
             android:layout_weight="1"
             android:backgroundTint="@color/square"
             android:tag="lookRight"
-            android:text="R_Spin"
+            android:foreground="@drawable/rot_r_toggle_selector"
             android:textColor="@color/icon"
-            android:textOff="R_Spin"
-            android:textOn="R_Spin"
+            android:textOff=""
+            android:textOn=""
             android:textSize="12sp"
             app:rippleColor="@color/icon" />
 
@@ -84,13 +84,12 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_weight="1"
+            android:foreground="@drawable/left_toggle_selector"
             android:backgroundTint="@color/square"
+            android:drawableTop="@drawable/left_arrow"
             android:tag="moveLeft"
-            android:text="Left"
-            android:textColor="@color/icon"
-            android:textOff="Left"
-            android:textOn="Left"
-            android:textSize="12sp"
+            android:textOff=""
+            android:textOn=""
             app:rippleColor="@color/icon" />
 
         <ToggleButton
@@ -100,10 +99,10 @@
             android:layout_weight="1"
             android:backgroundTint="@color/square"
             android:tag="sprint"
-            android:text="Sprint"
+            android:foreground="@drawable/run_toggle_selector"
             android:textColor="@color/icon"
-            android:textOff="Sprint"
-            android:textOn="Sprint"
+            android:textOff=""
+            android:textOn=""
             android:textSize="12sp"
             app:rippleColor="@color/icon" />
 
@@ -116,10 +115,10 @@
             android:layout_weight="1"
             android:backgroundTint="@color/square"
             android:tag="moveRight"
-            android:text="Right"
+            android:foreground="@drawable/right_toggle_selector"
             android:textColor="@color/icon"
-            android:textOff="Right"
-            android:textOn="Right"
+            android:textOff=""
+            android:textOn=""
             android:textSize="12sp"
             app:rippleColor="@color/icon" />
 
@@ -137,7 +136,7 @@
         tools:layout_constraintBottom_toTopOf="@id/BottomRow"
         tools:layout_constraintStart_toStartOf="parent">
 
-        <Button
+        <ToggleButton
             android:id="@+id/Jump"
             android:layout_width="35dp"
             android:layout_height="match_parent"
@@ -146,8 +145,10 @@
             android:layout_weight="1"
             android:backgroundTint="@color/square"
             android:onClick="buttonOnPress"
+            android:foreground="@drawable/jump_toggle_selector"
             android:tag="singleJump"
-            android:text="Jump"
+            android:textOff=""
+            android:textOn=""
             android:textColor="@color/icon"
             android:textSize="12sp" />
 
@@ -158,14 +159,14 @@
             android:layout_weight="1"
             android:backgroundTint="@color/square"
             android:tag="moveBackward"
-            android:text="Down"
+            android:foreground="@drawable/down_toggle_selector"
             android:textColor="@color/icon"
-            android:textOff="Down"
-            android:textOn="Down"
+            android:textOff=""
+            android:textOn=""
             android:textSize="12sp"
             app:rippleColor="@color/icon" />
 
-        <Button
+        <ToggleButton
             android:id="@+id/Mute"
             android:layout_width="35dp"
             android:layout_height="match_parent"
@@ -175,7 +176,9 @@
             android:backgroundTint="@color/square"
             android:onClick="buttonOnPress"
             android:tag="voice"
-            android:text="Toggle Mute"
+            android:textOff=""
+            android:textOn=""
+            android:foreground="@drawable/mute_toggle_selector"
             android:textColor="@color/icon"
             android:textSize="12sp" />
 
