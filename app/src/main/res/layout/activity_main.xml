@@ -136,7 +136,7 @@
         tools:layout_constraintBottom_toTopOf="@id/BottomRow"
         tools:layout_constraintStart_toStartOf="parent">
 
-        <ToggleButton
+        <Button
             android:id="@+id/Jump"
             android:layout_width="35dp"
             android:layout_height="match_parent"
@@ -147,8 +147,7 @@
             android:onClick="buttonOnPress"
             android:foreground="@drawable/jump_toggle_selector"
             android:tag="singleJump"
-            android:textOff=""
-            android:textOn=""
+            android:text=""
             android:textColor="@color/icon"
             android:textSize="12sp" />
 
@@ -166,7 +165,7 @@
             android:textSize="12sp"
             app:rippleColor="@color/icon" />
 
-        <ToggleButton
+        <Button
             android:id="@+id/Mute"
             android:layout_width="35dp"
             android:layout_height="match_parent"
@@ -176,8 +175,7 @@
             android:backgroundTint="@color/square"
             android:onClick="buttonOnPress"
             android:tag="voice"
-            android:textOff=""
-            android:textOn=""
+            android:text=""
             android:foreground="@drawable/mute_toggle_selector"
             android:textColor="@color/icon"
             android:textSize="12sp" />

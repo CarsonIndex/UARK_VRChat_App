@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         val persistent = applicationContext.getSharedPreferences("IP Storage", MODE_PRIVATE)
         if(persistent.getString("ipAddress", "") != null) ip = persistent.getString("ipAddress", "").toString()
 
-        val buttonList = arrayOf(R.id.LeftSpin, R.id.UpArrow, R.id.RightSpin, R.id.LeftArrow, R.id.RightArrow, R.id.DownArrow, R.id.Sprint, R.id.Jump, R.id.Mute)
+        val buttonList = arrayOf(R.id.LeftSpin, R.id.UpArrow, R.id.RightSpin, R.id.LeftArrow, R.id.RightArrow, R.id.DownArrow, R.id.Sprint)
 
         //for(buttonID in buttonList){
         //    addTouch(findViewById<Button>(buttonID))
