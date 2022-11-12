@@ -27,12 +27,10 @@ class OSCModel(ipAddress:String, tag:String, pressed:Boolean) : Thread(){
             "lookLeft"->sendLookLeft(sender,state)
             "lookRight"->sendLookRight(sender,state)
             "voice"->sendVoiceToggle(sender)
-            "safe"->sendSafe(sender, state)
+            "voicePush"->sendVoice(sender, state)
             "sprint"->sendSprint(sender, state)
             "voiceOn"->sendVoice(sender,true)
             "voiceOff"->sendVoice(sender,false)
-            "safeOn"->sendSafe(sender,true)
-            "safeOff"->sendSafe(sender,false)
         }
     }
 
@@ -88,11 +86,6 @@ class OSCModel(ipAddress:String, tag:String, pressed:Boolean) : Thread(){
         sender.send("/input/Voice", 1)
         sleep(100)
         sender.send("/input/Voice", 0)
-    }
-
-    private fun sendSafe(sender:OSCSender, value:Boolean){  //TROY: This will be removed at some point. Sprint will be used much more than this.
-        if(value) sender.send("/input/PanicButton", 1)
-        else sender.send("/input/PanicButton", 0)
     }
 
     private fun sendSprint(sender:OSCSender, value:Boolean){

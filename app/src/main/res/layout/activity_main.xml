@@ -173,12 +173,13 @@
             android:layout_marginRight="30dp"
             android:layout_weight="1"
             android:backgroundTint="@color/square"
+            android:foreground="@drawable/mute_off"
+            android:onClick="buttonOnPress"
             android:tag="voice"
             android:text=""
-            android:foreground="@drawable/mute_off"
             android:textColor="@color/icon"
             android:textSize="12sp"
-            android:visibility="visible"/>
+            android:visibility="visible" />
 
         <ToggleButton
             android:id="@+id/MuteToggle"
@@ -189,13 +190,13 @@
             android:layout_weight="1"
             android:backgroundTint="@color/square"
             android:foreground="@drawable/mute_toggle_selector"
-            android:tag="muteToggle"
+            android:tag="voicePush"
             android:textColor="@color/icon"
             android:textOff=""
             android:textOn=""
             android:textSize="12sp"
-            app:rippleColor="@color/icon"
-            android:visibility="gone" />
+            android:visibility="gone"
+            app:rippleColor="@color/icon" />
 
     </LinearLayout>
 
