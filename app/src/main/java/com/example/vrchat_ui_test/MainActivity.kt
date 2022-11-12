@@ -13,15 +13,19 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     private var ip:String = "127.0.0.1"
+    private lateinit var muteToggle: ToggleButton
+    private lateinit var mute: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        muteToggle = findViewById(R.id.MuteToggle)
+        mute = findViewById(R.id.Mute)
 
         val persistent = applicationContext.getSharedPreferences("IP Storage", MODE_PRIVATE)
         if(persistent.getString("ipAddress", "") != null) ip = persistent.getString("ipAddress", "").toString()
 
-        val buttonList = arrayOf(R.id.LeftSpin, R.id.UpArrow, R.id.RightSpin, R.id.LeftArrow, R.id.RightArrow, R.id.DownArrow, R.id.Sprint)
+        val buttonList = arrayOf(R.id.LeftSpin, R.id.UpArrow, R.id.RightSpin, R.id.LeftArrow, R.id.RightArrow, R.id.DownArrow, R.id.Sprint, R.id.MuteToggle)
 
         //for(buttonID in buttonList){
         //    addTouch(findViewById<Button>(buttonID))
@@ -59,6 +63,15 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         ip = data!!.getStringExtra("ipAddress")!!
+        val pushToTalk = data!!.getStringExtra("pushToTalk")
+        if (pushToTalk == "true") {
+            mute.visibility = View.GONE
+            muteToggle.visibility = View.VISIBLE
+        }
+        else {
+            mute.visibility = View.VISIBLE
+            muteToggle.visibility = View.GONE
+        }
     }
 
     fun buttonOnPress(view: View){

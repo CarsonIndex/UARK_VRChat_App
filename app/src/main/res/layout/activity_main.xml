@@ -173,12 +173,29 @@
             android:layout_marginRight="30dp"
             android:layout_weight="1"
             android:backgroundTint="@color/square"
-            android:onClick="buttonOnPress"
             android:tag="voice"
             android:text=""
-            android:foreground="@drawable/mute_toggle_selector"
+            android:foreground="@drawable/mute_off"
             android:textColor="@color/icon"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            android:visibility="visible"/>
+
+        <ToggleButton
+            android:id="@+id/MuteToggle"
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/square"
+            android:foreground="@drawable/mute_toggle_selector"
+            android:tag="muteToggle"
+            android:textColor="@color/icon"
+            android:textOff=""
+            android:textOn=""
+            android:textSize="12sp"
+            app:rippleColor="@color/icon"
+            android:visibility="gone" />
 
     </LinearLayout>
 
@@ -191,7 +208,7 @@
 
         <Button
             android:id="@+id/Chat"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
@@ -204,7 +221,7 @@
 
         <Button
             android:id="@+id/Advanced"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
@@ -217,7 +234,7 @@
 
         <Button
             android:id="@+id/Settings"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"

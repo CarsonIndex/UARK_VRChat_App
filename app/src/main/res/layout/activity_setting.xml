@@ -65,7 +65,9 @@
             android:hint="127.0.0.1"
             android:inputType="text"
             android:minHeight="48dp"
-            android:textColor="@color/icon" />
+            android:textColor="@color/icon"
+            android:textColorHint="@color/icon" />
+
     </LinearLayout>
 
     <TextView
@@ -80,5 +82,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/PTT_Box"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="100dp"
+        android:text="Enable Push-To-Talk?"
+        android:textColor="@color/icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonApply" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -50,7 +50,8 @@
             android:hint="127.0.0.1"
             android:inputType="text"
             android:minHeight="48dp"
-            android:textColor="@color/icon" />
+            android:textColor="@color/icon"
+            android:textColorHint="@color/icon" />
 
         <TextView
             android:id="@+id/colonText"
@@ -72,7 +73,8 @@
             android:hint="0000"
             android:inputType="number"
             android:minHeight="48dp"
-            android:textColor="@color/icon" />
+            android:textColor="@color/icon"
+            android:textColorHint="@color/icon" />
 
     </LinearLayout>
 
@@ -104,7 +106,8 @@
             android:hint="/message/address/here"
             android:inputType="text"
             android:minHeight="48dp"
-            android:textColor="@color/icon" />
+            android:textColor="@color/icon"
+            android:textColorHint="@color/icon" />
     </LinearLayout>
 
     <LinearLayout
@@ -135,7 +138,8 @@
             android:hint="parameter sent to message"
             android:inputType="text"
             android:minHeight="48dp"
-            android:textColor="@color/icon" />
+            android:textColor="@color/icon"
+            android:textColorHint="@color/icon" />
     </LinearLayout>
 
     <Button
