@@ -52,13 +52,14 @@
             android:layout_weight="1"
             android:text="New Target IP:"
             android:textAlignment="center"
-            android:textColor="#00FFFF" />
+            android:textColor="@color/icon" />
 
         <EditText
             android:id="@+id/ipEditAdvanced"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:autofillHints="none"
             android:background="@color/border"
             android:backgroundTint="@color/square"
             android:ems="10"
@@ -66,7 +67,7 @@
             android:inputType="text"
             android:minHeight="48dp"
             android:textColor="@color/icon"
-            android:textColorHint="@color/icon" />
+            android:textColorHint="@color/hint" />
 
     </LinearLayout>
 
@@ -80,20 +81,56 @@
         android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@id/IPLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/aboutView"
+        app:layout_constraintVertical_bias="0.75" />
 
     <CheckBox
         android:id="@+id/PTT_Box"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="100dp"
-        android:text="Enable Push-To-Talk?"
+        android:text="Is Push-To-Talk Enabled?"
         android:textColor="@color/icon"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/pushView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonApply" />
+        app:layout_constraintTop_toBottomOf="@id/buttonApply"
+        tools:layout_constraintTop_toBottomOf="@id/buttonApply" />
+
+    <TextView
+        android:id="@+id/aboutView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:autoLink="web"
+        android:linksClickable="true"
+        android:text="@string/about_section"
+        android:textAlignment="center"
+        android:textColor="@color/icon"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/ipView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/pushView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/push_section"
+        android:textAlignment="center"
+        android:textColor="@color/icon"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/buttonSave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/PTT_Box"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

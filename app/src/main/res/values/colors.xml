@@ -11,4 +11,5 @@
     <color name="square">#1B3637</color>
     <color name="border">#27575C</color>
     <color name="icon">#8ae0f7</color>
+    <color name="hint">#FF00DD88</color>
 </resources>

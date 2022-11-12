@@ -28,7 +28,7 @@ class AdvancedActivity : AppCompatActivity() {
 
     private fun portIsValid() : Boolean{    //TROY: Method that checks that port is formatted correctly.
         val tempInt = Integer.valueOf(findViewById<EditText>(R.id.portEdit).text.toString())
-        if((tempInt != null) && (tempInt < 10000) && (tempInt > -1)) return true
+        if((tempInt < 10000) && (tempInt > -1)) return true
         return false
     }
 
@@ -36,10 +36,10 @@ class AdvancedActivity : AppCompatActivity() {
         val tempStatus = findViewById<TextView>(R.id.statusView)
         tempStatus.text = ""
         if(!addressIsValid()){
-            tempStatus.text = "Invalid IP Address!"
+            tempStatus.text = R.string.bad_ip.toString()
             return
         } else if(!portIsValid()){
-            tempStatus.text = "Invalid Port!"
+            tempStatus.text = R.string.bad_port.toString()
             return
         }
 
@@ -47,26 +47,30 @@ class AdvancedActivity : AppCompatActivity() {
         val portAdvanced = Integer.valueOf(findViewById<EditText>(R.id.portEdit).text.toString())
         val messageAdvanced = findViewById<EditText>(R.id.messageEdit).text.toString()
         var senderAdvanced : OSCAdvanced? = null
-        val tempTag = view.tag.toString()
-        if(tempTag == "String") {
-            senderAdvanced = OSCAdvanced(ipAdvanced, portAdvanced, messageAdvanced, findViewById<EditText>(R.id.parameterEdit).text.toString())
-        } else if(tempTag == "Float"){
-            try{
-                senderAdvanced = OSCAdvanced(ipAdvanced, portAdvanced, messageAdvanced, findViewById<EditText>(R.id.parameterEdit).text.toString().toFloat())
-            } catch(e : NumberFormatException){
-                tempStatus.text = "Parameter not a Float!"
+        when (view.tag.toString()) {
+            "String" -> {
+                senderAdvanced = OSCAdvanced(ipAdvanced, portAdvanced, messageAdvanced, findViewById<EditText>(R.id.parameterEdit).text.toString())
             }
-        } else if(tempTag == "Integer"){
-            try{
-                senderAdvanced = OSCAdvanced(ipAdvanced, portAdvanced, messageAdvanced, findViewById<EditText>(R.id.parameterEdit).text.toString().toInt())
-            } catch(e : NumberFormatException){
-                tempStatus.text = "Parameter not an Integer!"
+            "Float" -> {
+                try{
+                    senderAdvanced = OSCAdvanced(ipAdvanced, portAdvanced, messageAdvanced, findViewById<EditText>(R.id.parameterEdit).text.toString().toFloat())
+                } catch(e : NumberFormatException){
+                    tempStatus.text = R.string.advanced_float_error.toString()
+                }
             }
-        } else if(tempTag == "Boolean"){
-            try{
-                senderAdvanced = OSCAdvanced(ipAdvanced, portAdvanced, messageAdvanced, findViewById<EditText>(R.id.parameterEdit).text.toString().toBooleanStrict())
-            } catch(e : IllegalArgumentException){
-                tempStatus.text = "Parameter not \"true\" or \"false\"!"
+            "Integer" -> {
+                try{
+                    senderAdvanced = OSCAdvanced(ipAdvanced, portAdvanced, messageAdvanced, findViewById<EditText>(R.id.parameterEdit).text.toString().toInt())
+                } catch(e : NumberFormatException){
+                    tempStatus.text = R.string.advanced_integer_error.toString()
+                }
+            }
+            "Boolean" -> {
+                try{
+                    senderAdvanced = OSCAdvanced(ipAdvanced, portAdvanced, messageAdvanced, findViewById<EditText>(R.id.parameterEdit).text.toString().toBooleanStrict())
+                } catch(e : IllegalArgumentException){
+                    tempStatus.text = R.string.advanced_boolean_error.toString()
+                }
             }
         }
 
