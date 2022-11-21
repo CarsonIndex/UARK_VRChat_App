@@ -11,6 +11,7 @@ import android.widget.TextView
 
 class SettingActivity : AppCompatActivity() {
     private var ip:String = "127.0.0.1"
+    private var checkPersist:String = "0"
     private lateinit var PTT_Box: CheckBox
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +20,13 @@ class SettingActivity : AppCompatActivity() {
         PTT_Box = findViewById(R.id.PTT_Box)
 
         ip = intent.getStringExtra("ipAddress")!!
+        checkPersist = intent.getStringExtra("checkBool")!!
+
+        if (checkPersist == "1")
+            PTT_Box.isChecked = true
+        else
+            PTT_Box.isChecked = false
+
         updateIP()
     }
 

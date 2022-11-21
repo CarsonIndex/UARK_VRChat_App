@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     private var ip:String = "127.0.0.1"
+    private var checkPersist = 0
     private lateinit var muteToggle: ToggleButton
     private lateinit var mute: Button
 
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         val settingIntent = Intent(this, SettingActivity::class.java)
 
         settingIntent.putExtra("ipAddress", ip)
+        settingIntent.putExtra("checkBool", checkPersist.toString())
 
         startActivityForResult(settingIntent, 1)
     }
@@ -67,10 +69,12 @@ class MainActivity : AppCompatActivity() {
         if (pushToTalk == "true") {
             mute.visibility = View.GONE
             muteToggle.visibility = View.VISIBLE
+            checkPersist = 1
         }
         else {
             mute.visibility = View.VISIBLE
             muteToggle.visibility = View.GONE
+            checkPersist = 0
         }
     }
 
