@@ -50,17 +50,22 @@ class SettingActivity : AppCompatActivity() {
         val returnIntent = Intent()
 
         val persistent = applicationContext.getSharedPreferences("IP Storage", MODE_PRIVATE)
+        val persistent_box = applicationContext.getSharedPreferences("Checkbox Storage", MODE_PRIVATE)
         val editor = persistent.edit()
+        val editor_box = persistent_box.edit()
         editor.putString("ipAddress", ip)
         editor.apply()
 
         returnIntent.putExtra("ipAddress", ip)
         if (PTT_Box.isChecked) {
+            editor_box.putString("pushToTalk", "true")
             returnIntent.putExtra("pushToTalk", "true")
         }
         else {
+            editor_box.putString("pushToTalk", "false")
             returnIntent.putExtra("pushToTalk", "false")
         }
+        editor_box.apply()
         setResult(RESULT_OK, returnIntent)
         finish()
     }
