@@ -10,7 +10,8 @@ class OSCSender(ipAddress:String, portAddress:Int = 9000) {
 
     init{
         val socket:InetAddress = InetAddress.getByName(ipAddress)
-        port = OSCPortOut(socket, portAddress) //TROY: VRChat input port is 9000 by default.
+        if(MainActivity.isNetworkAvailable()) port = OSCPortOut(socket, portAddress) //TROY: VRChat input port is 9000 by default.
+        else port = OSCPortOut(InetAddress.getByName("127.0.0.1"), portAddress) //TROY: If no network is detected, the the localhost is used to prevent a crash.
     }
 
     fun send(address:String, argument:Any){  //TROY: This method is to be used to send a message to the VRChat program.

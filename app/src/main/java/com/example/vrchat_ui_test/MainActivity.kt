@@ -1,7 +1,9 @@
 package com.example.vrchat_ui_test
 
+import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -9,6 +11,7 @@ import android.widget.Button
 import android.widget.CompoundButton
 import android.widget.ToggleButton
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.getSystemService
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         muteToggle = findViewById(R.id.MuteToggle)
         mute = findViewById(R.id.Mute)
+        appContext = applicationContext
 
         val persistent = applicationContext.getSharedPreferences("IP Storage", MODE_PRIVATE)
         if(persistent.getString("ipAddress", "") != null) ip = persistent.getString("ipAddress", "").toString()
@@ -140,6 +144,16 @@ class MainActivity : AppCompatActivity() {
             }
 
             model.start()
+        }
+    }
+
+    companion object{
+        lateinit var appContext: Context
+
+        fun isNetworkAvailable(): Boolean {
+            val connector = getSystemService(appContext, ConnectivityManager::class.java)
+            val netInfo = connector?.activeNetworkInfo
+            return netInfo != null && netInfo.isConnected
         }
     }
 }
