@@ -17,6 +17,7 @@ class ChatActivity : AppCompatActivity() {
         //TROY: This block of code initializes chatText with its previous value.
         val persistent = applicationContext.getSharedPreferences("IP Storage", MODE_PRIVATE)
         if(persistent.getString("messageChat", "") != null) findViewById<EditText>(R.id.chatText).setText(persistent.getString("messageChat", ""))
+        if(persistent.getString("messageIndex", "") != null) findViewById<EditText>(R.id.indexText).setText(persistent.getString("messageIndex", ""))
     }
 
     //TROY: This method is what sends the message to the VRChat chat box.
@@ -29,6 +30,22 @@ class ChatActivity : AppCompatActivity() {
         senderChat.start()
     }
 
+    fun attemptYoutube(view: View){
+        val linkString = findViewById<EditText>(R.id.chatText).text.toString()
+
+        val senderLink = OSCAdvanced(ip, 9001, "/VRCRC/Reset", linkString)
+
+        senderLink.start()
+    }
+
+    fun attemptIndex(view: View){
+        val indexString = findViewById<EditText>(R.id.indexText).text.toString().toInt()
+
+        val senderIndex = OSCAdvanced(ip, 9001, "/VRCRC/Index", indexString)
+
+        senderIndex.start()
+    }
+
     fun returnChat(view: View){
         onBackPressed()
     }
@@ -38,6 +55,7 @@ class ChatActivity : AppCompatActivity() {
         val persistent = applicationContext.getSharedPreferences("IP Storage", MODE_PRIVATE)
         val editor = persistent.edit()
         editor.putString("messageChat", findViewById<EditText>(R.id.chatText).text.toString())
+        editor.putString("messageIndex", findViewById<EditText>(R.id.indexText).text.toString())
         editor.apply()
 
         finish()

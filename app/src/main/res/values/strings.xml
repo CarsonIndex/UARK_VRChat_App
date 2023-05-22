@@ -12,7 +12,7 @@
 
     <string name="about_section">This application utilizes Open Sound Control (OSC). You will need the IP Address of whatever device you are playing VRChat. You will also need to enable OSC within VRChat. For information on how to enable OSC, please visit https://docs.vrchat.com/docs/osc-overview#enabling-it.</string>
     <string name="push_section">It\'s advised to have the Push-To-Talk reflect VRChat\'s settings.</string>
-    <string name="chat_section">This sends a message to VRChat using its chat box. It supports UTF-8 characters, which includes some emojis.</string>
+    <string name="chat_section">This section is to be used with a Jukebox Python script. If you don\'t know what I\'m talking about, you\'re on the wrong Github branch.</string>
     <string name="advanced_section">For advanced users only! If you\'re not familiar with Open Sound Control, then you may want to leave this menu alone.</string>
 
     <string name="advanced_float_error">Parameter is not a float!</string>
