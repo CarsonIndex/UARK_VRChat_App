@@ -29,8 +29,12 @@ class ChatActivity : AppCompatActivity() {
         senderChat.start()
     }
 
-    //TROY: Before returning to the MainActivity, the ChatActivity stores the message in IP Storage.
     fun returnChat(view: View){
+        onBackPressed()
+    }
+
+    //TROY: Before returning to the MainActivity, the ChatActivity stores the message in IP Storage.
+    override fun onBackPressed(){
         val persistent = applicationContext.getSharedPreferences("IP Storage", MODE_PRIVATE)
         val editor = persistent.edit()
         editor.putString("messageChat", findViewById<EditText>(R.id.chatText).text.toString())

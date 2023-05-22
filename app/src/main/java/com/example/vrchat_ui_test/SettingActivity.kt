@@ -1,13 +1,15 @@
 package com.example.vrchat_ui_test
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+
 
 class SettingActivity : AppCompatActivity() {
     private var ip:String = "127.0.0.1"
@@ -30,6 +32,10 @@ class SettingActivity : AppCompatActivity() {
         updateIP()
     }
 
+    fun returnIP(view: View){
+        onBackPressed()
+    }
+
     //TROY: Function that puts IP address from input text to variable.
     fun applyIP(view: View){
         val textField = findViewById<EditText>(R.id.ipEditAdvanced)
@@ -46,7 +52,7 @@ class SettingActivity : AppCompatActivity() {
     }
 
     //TROY: Function that ends current activity to return updated ip to MainActivity
-    fun returnIP(view: View){
+    override fun onBackPressed(){
         val returnIntent = Intent()
 
         val persistent = applicationContext.getSharedPreferences("IP Storage", MODE_PRIVATE)

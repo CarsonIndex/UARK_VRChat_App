@@ -77,8 +77,12 @@ class AdvancedActivity : AppCompatActivity() {
         senderAdvanced?.start()
     }
 
-    //TROY: Function that ends current activity to return to MainActivity. Also puts values in shared preferences.
     fun returnAdvanced(view: View){
+        onBackPressed()
+    }
+
+    //TROY: Function that ends current activity to return to MainActivity. Also puts values in shared preferences.
+    override fun onBackPressed(){
         val returnIntent = Intent()
 
         val persistent = applicationContext.getSharedPreferences("IP Storage", MODE_PRIVATE)
