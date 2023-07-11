@@ -1,5 +1,6 @@
 package com.example.vrchat_ui_test
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
@@ -33,14 +34,15 @@ class MainActivity : AppCompatActivity() {
         if(persistent_box.getString("pushToTalk", "") == "true")
             changeTalkButton("true")
 
-        val buttonList = arrayOf(R.id.LeftSpin, R.id.UpArrow, R.id.RightSpin, R.id.LeftArrow, R.id.RightArrow, R.id.DownArrow, R.id.Sprint, R.id.MuteToggle)
+        val buttonList = arrayOf(R.id.LeftSpin, R.id.UpArrow, R.id.RightSpin, R.id.LeftArrow, R.id.RightArrow, R.id.DownArrow)
+        val toggleButtonList = arrayOf(R.id.Sprint, R.id.MuteToggle)
 
-        //for(buttonID in buttonList){
-        //    addTouch(findViewById<Button>(buttonID))
-        //}
+        for(toggleButtonID in toggleButtonList){
+            addCheckChange(findViewById(toggleButtonID))
+        }
 
         for(buttonID in buttonList){
-            addCheckChange(findViewById(buttonID))
+            addTouch(findViewById(buttonID))
         }
 
     }
@@ -117,31 +119,27 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun addTouch(element: Button){  //TROY: This implementation of detecting when a button is released seems to conflict with the touch detection for the UI.
-        element.setOnTouchListener(object:View.OnTouchListener{ //TROY: When this is used with a button, the ripple effect that normally shows up when it's pressed is disabled.
-            override fun onTouch(v:View, event:MotionEvent):Boolean{
-                val tag:String = v.tag as String
-                val pressed:Boolean = (event.getAction() != MotionEvent.ACTION_UP)
-                val model = OSCModel(ip, tag, pressed)
-
+    @SuppressLint("ClickableViewAccessibility")
+    fun addTouch(element: Button){  //TROY: This works for detecting button releases, but isn't accessible friendly.
+        element.setOnTouchListener{v, event ->
+            val tag:String = v.tag as String
+            if(event.action == MotionEvent.ACTION_DOWN){
+                v.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.teal_700)))
+                val model = OSCModel(ip, tag, true)
                 model.start()
-
-                return true
+                return@setOnTouchListener true
+            } else if((event.action == MotionEvent.ACTION_UP) or (event.action == MotionEvent.ACTION_CANCEL)){
+                v.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.square)))
+                val model = OSCModel(ip, tag, false)
+                model.start()
+                return@setOnTouchListener false
             }
-        })
+
+            return@setOnTouchListener false
+        }
     }
 
-     fun onRelease(v:View, event:MotionEvent):Boolean{  //TROY: If you ever figure out how to have a function be run on button release, use this.
-        val tag:String = v.tag as String
-        val pressed:Boolean = (event.getAction() != MotionEvent.ACTION_UP)
-        val model = OSCModel(ip, tag, pressed)
-
-        model.start()
-
-        return true
-    }
-
-    private fun addCheckChange(element: ToggleButton){  //TROY: If you ever figure out how to have a function be run on button release, use this.
+    private fun addCheckChange(element: ToggleButton){
         element.setOnCheckedChangeListener { buttonView: CompoundButton, isChecked ->
             val tag:String = buttonView.tag as String
             val model = OSCModel(ip, tag, isChecked)
