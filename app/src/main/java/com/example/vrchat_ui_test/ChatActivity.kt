@@ -17,7 +17,6 @@ class ChatActivity : AppCompatActivity() {
         //TROY: This block of code initializes chatText with its previous value.
         val persistent = applicationContext.getSharedPreferences("IP Storage", MODE_PRIVATE)
         if(persistent.getString("messageChat", "") != null) findViewById<EditText>(R.id.chatText).setText(persistent.getString("messageChat", ""))
-        if(persistent.getString("messageIndex", "") != null) findViewById<EditText>(R.id.indexText).setText(persistent.getString("messageIndex", ""))
     }
 
     //TROY: This method is what sends the message to the VRChat chat box.
@@ -33,17 +32,33 @@ class ChatActivity : AppCompatActivity() {
     fun attemptYoutube(view: View){
         val linkString = findViewById<EditText>(R.id.chatText).text.toString()
 
-        val senderLink = OSCAdvanced(ip, 9001, "/VRCRC/Reset", linkString)
+        val senderLink = OSCAdvanced(ip, 9001, "/VRCRC/YouTubeURL", linkString)
 
         senderLink.start()
     }
 
-    fun attemptIndex(view: View){
-        val indexString = findViewById<EditText>(R.id.indexText).text.toString().toInt()
+    fun attemptNext(view: View){
+        val senderNext = OSCAdvanced(ip, 9001, "/VRCRC/NextTrack", 1)
 
-        val senderIndex = OSCAdvanced(ip, 9001, "/VRCRC/Index", indexString)
+        senderNext.start()
+    }
 
-        senderIndex.start()
+    fun attemptPrevious(view: View){
+        val senderPrevious = OSCAdvanced(ip, 9001, "/VRCRC/PreviousTrack", 1)
+
+        senderPrevious.start()
+    }
+
+    fun attemptPlayPause(view: View){
+        val senderPlayPause = OSCAdvanced(ip, 9001, "/VRCRC/PlayPauseTrack", 1)
+
+        senderPlayPause.start()
+    }
+
+    fun attemptRestart(view: View){
+        val senderRestart = OSCAdvanced(ip, 9001, "/VRCRC/RestartTrack", 1)
+
+        senderRestart.start()
     }
 
     fun returnChat(view: View){
@@ -55,7 +70,6 @@ class ChatActivity : AppCompatActivity() {
         val persistent = applicationContext.getSharedPreferences("IP Storage", MODE_PRIVATE)
         val editor = persistent.edit()
         editor.putString("messageChat", findViewById<EditText>(R.id.chatText).text.toString())
-        editor.putString("messageIndex", findViewById<EditText>(R.id.indexText).text.toString())
         editor.apply()
 
         finish()

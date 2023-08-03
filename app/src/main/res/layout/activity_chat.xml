@@ -8,18 +8,25 @@
     tools:context=".ChatActivity">
 
     <Button
-        android:id="@+id/buttonSend2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:id="@+id/RestartTrack"
+        android:layout_width="107dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="154dp"
+        android:layout_marginEnd="154dp"
+        android:layout_weight="1"
         android:backgroundTint="@color/square"
-        android:onClick="attemptIndex"
-        android:text="Send Index"
+        android:contentDescription="@string/restart_description"
+        android:foreground="@drawable/rot_l_toggle_selector"
+        android:onClick="attemptRestart"
+        android:tag="moveForward"
         android:textColor="@color/icon"
+        android:textOff=""
+        android:textOn=""
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/buttonChatSave"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IndexLayout"
+        app:layout_constraintTop_toBottomOf="@id/RowA"
         app:rippleColor="@color/icon" />
 
     <Button
@@ -88,6 +95,73 @@
             android:textColorHint="@color/hint" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/RowA"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="64dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonSend">
+
+        <Button
+            android:id="@+id/PreviousTrack"
+            android:contentDescription="@string/previous_track_description"
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/square"
+            android:disabledAlpha="0.5"
+            android:foreground="@drawable/previous_icon_scaled"
+            android:tag="lookLeft"
+            android:textColor="@color/icon"
+            android:textOff=""
+            android:textOn=""
+            android:textSize="12sp"
+            android:onClick="attemptPrevious"
+            app:rippleColor="@color/icon" />
+
+
+        <Button
+            android:id="@+id/PlayPauseTrack"
+            android:contentDescription="@string/play_pause_track_description"
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="@color/square"
+            android:foreground="@drawable/play_pause_icon_scaled"
+            android:tag="moveForward"
+            android:textColor="@color/icon"
+            android:textOff=""
+            android:textOn=""
+            android:textSize="12sp"
+            android:onClick="attemptPlayPause"
+            app:rippleColor="@color/icon" />
+
+        <Button
+            android:id="@+id/NextTrack"
+            android:contentDescription="@string/next_track_description"
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/square"
+            android:foreground="@drawable/next_icon_scaled"
+            android:tag="lookRight"
+            android:textColor="@color/icon"
+            android:textOff=""
+            android:textOn=""
+            android:textSize="12sp"
+            android:onClick="attemptNext"
+            app:rippleColor="@color/icon" />
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/chatView"
         android:layout_width="0dp"
@@ -102,41 +176,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/IndexLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonSend">
-
-        <TextView
-            android:id="@+id/targetIndexText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Index:"
-            android:textAlignment="center"
-            android:textColor="@color/icon" />
-
-        <EditText
-            android:id="@+id/indexText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:autofillHints="none"
-            android:background="@color/border"
-            android:backgroundTint="@color/square"
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="Index of Video"
-            android:inputType="number"
-            android:minHeight="48dp"
-            android:textColor="@color/icon"
-            android:textColorHint="@color/hint" />
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

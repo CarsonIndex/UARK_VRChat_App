@@ -12,8 +12,13 @@
 
     <string name="about_section">This application utilizes Open Sound Control (OSC). You will need the IP Address of whatever device you are playing VRChat. You will also need to enable OSC within VRChat. For information on how to enable OSC, please visit https://docs.vrchat.com/docs/osc-overview#enabling-it.</string>
     <string name="push_section">It\'s advised to have the Push-To-Talk reflect VRChat\'s settings.</string>
-    <string name="chat_section">This section is to be used with a Jukebox Python script. If you don\'t know what I\'m talking about, you\'re on the wrong Github branch.</string>
+    <string name="chat_section">This section is to be used with the \"Mudskippy\'sJukebox\" JavaScript program. If you don\'t know what I\'m talking about, you\'re on the wrong Github branch.</string>
     <string name="advanced_section">For advanced users only! If you\'re not familiar with Open Sound Control, then you may want to leave this menu alone.</string>
+
+    <string name="previous_track_description">A button for the previous video.</string>
+    <string name="next_track_description">A button for the next video.</string>
+    <string name="play_pause_track_description">A button for toggling the video being played or paused.</string>
+    <string name="restart_description">A button for restarting the current video.</string>
 
     <string name="advanced_float_error">Parameter is not a float!</string>
     <string name="advanced_integer_error">Parameter is not an integer!</string>
